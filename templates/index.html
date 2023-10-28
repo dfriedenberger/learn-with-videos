@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        
+        
+        
+        <link href="bootstrap-5.3.2-dist/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+        
+        <link rel="stylesheet" href="css/font-awesome-4.7.0.min.css">
+
+        <link href="css/style.css" rel="stylesheet">
+        
+        
+    </head>
+    <body>
+
+    <div class="container">
+
+        <h1>{{ title }}</h1>
+
+
+        <div class="row justify-content-md-center">
+            <div class="col col-lg-4">
+                <form method="get" action="/execute" accept-charset="UTF-8">
+                    <div class="form-group">
+                        <label for="url">URL</label>
+                        <input class="form-control" id="url" name="url">
+                    </div>
+                <button type="submit" class="btn btn-primary">Start</button>
+                </form>
+            </div>
+        </div>
+
+
+        {% for video in videos %}
+
+        <div class="row justify-content-md-center">
+
+            <div class="col col-lg-8">
+
+
+                <div class="d-flex align-items-center">
+                    <div class="flex-shrink-0">
+                        <img src="img/clapboard-311208_640.png" style="max-width:150px; max-height:150px" alt="...">
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                      <h5>{{ video["title"] }}</h5>
+                      This is some content from a media component. You can replace this with any content and adjust it as needed.
+
+                      <p>
+                        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+
+                            <a type="button" class="btn btn-outline-info" href="/vocabulary/{{video['id']}}/de">Vokabeln</a>
+                            <button type="button" class="btn btn-outline-success">Play</button>
+                        
+                            <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-outline-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                Download
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#"><i class="fa fa-file-excel-o" aria-hidden="true"></i>&nbsp;Excel</a></li>
+                                <li><a class="dropdown-item" href="#">Anki</a></li>
+                            </ul>
+                            </div>
+
+                        </div>
+                      </p>
+                    </div>
+                </div>
+
+        
+
+
+            </div>
+        </div>
+        {% endfor %}
+
+
+           
+           
+
+    </div>
+
+
+   
+
+</body>
+
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
+
+
+</html>
