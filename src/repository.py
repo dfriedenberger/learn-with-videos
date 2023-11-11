@@ -15,6 +15,8 @@ class VideoRepository:
         self.videos = []
         for video_folder in os.listdir(folder):
             path = os.path.join(folder,video_folder)
+            if not os.path.isdir(path):
+                continue
             video = video_reader.read(path)
             self.videos.append(video)
 
@@ -38,8 +40,7 @@ class VideoRepository:
 
             if video.id != video_id:
                 continue
-            
-            
+
             for phrase in video.dataset:
 
                 #TODO check parameters and existence of translation
@@ -55,8 +56,5 @@ class VideoRepository:
                     "level" : level,
                     "token" : phrase['words']
                 })
-                
+         
         return vocabulary
-
-
-

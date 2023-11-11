@@ -27,6 +27,19 @@ def vocabulary(request: Request,video_id,language):
 
     return templates.TemplateResponse("vocabulary.html", context)
 
+
+@app.get("/play/{video_id}/{language}")
+def play(request: Request,video_id,language):
+
+    context = {
+        "request" : request,   
+        "title" : "Hello World!", 
+        "cards" : video_repository.get_vocabulary(video_id,language)
+    }
+
+    return templates.TemplateResponse("play.html", context)
+
+
 @app.get("/")
 def home(request: Request):
 

@@ -1,9 +1,6 @@
 
 $( document ).ready(function() {
 
-    console.log( "ready!" );
-
-
 
     $(".select-level").change(function(ev) {
 
